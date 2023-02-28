@@ -6,6 +6,11 @@
 ## 스프링 클라우드 버전 체크
 * 스프링 클라우드 release train 을 꼭 살펴보아야한다.
 * 현재 스프링부트 버전에는 어떤 클라우드가 호환되는지 반드시 확인한다.
+* 버전 문제때문에 gradle이 정상적으로 작동이 안될때가있다.
+* 디펜던시에는 존재하는 채로 말이다...
+* 따라서 이 경우에는 spring cloud사이트에 접속해 cloud관련 디펜던시들의 정확한 버전정보를 가져와서
+* gradle에 넣어주면된다.
+* ex : implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.1'
 
 ## 사용기술
 #### configuration management
