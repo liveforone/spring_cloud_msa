@@ -17,9 +17,9 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - name: GlobalFilter
+        - name: GlobalTrackerFilter
           args:
-            baseMessage: Spring Cloud Gateway Global Filter
+            baseMessage: Spring Cloud Gateway Global Tracker Filter
             preLogger: true
             postLogger: true
       routes:
