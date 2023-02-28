@@ -33,12 +33,6 @@ public class UserController {
         return "Port Num : " + environment.getProperty("local.server.port");
     }
 
-    @GetMapping("/welcome")
-    @Timed(value = "user.welcome", longTask = true)
-    public String welcome() {
-        return environment.getProperty("greeting.message");
-    }
-
     @PostMapping("/signup")
     public ResponseEntity<?> createUser(@RequestBody UserRequest userRequest) {
         userService.singUp(userRequest);
