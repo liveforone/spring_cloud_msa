@@ -10,6 +10,7 @@ import spring_cloud_msa.orderservice.domain.Orders;
 import spring_cloud_msa.orderservice.dto.OrderRequest;
 import spring_cloud_msa.orderservice.mapper.OrderMapper;
 import spring_cloud_msa.orderservice.mq.KafkaProducer;
+import spring_cloud_msa.orderservice.mq.topic.CatalogTopic;
 import spring_cloud_msa.orderservice.service.OrderService;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public class OrderController {
     ) {
         OrderRequest order = orderService.saveOrder(orderRequest, userId);
 
-        kafkaProducer.send("minus-catalog-stock", order);
+        kafkaProducer.send(CatalogTopic.MINUS_STOCK.getValue(), order);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
