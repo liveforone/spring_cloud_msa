@@ -333,6 +333,8 @@ bin\windows\connect-distributed.bat etc\kafka\connect-distributed.properties
 * enum 클래스를 만들어서 깔끔하게 처리하자.yml은..지양하자,, 문자열과 별 다를게 없다...
 * feign clinet를 사용할때에는 반드시 logger레벨을 full로 설정해 로그를 남기도록 한다.
 * env 폴더를 만들어서 거기에 문자열 설정값들을 전부 enum으로 집어넣는다.
+* 다른 서비스를 호출해서 값을 가져오는(조회쿼리)경우에는 서킷브레이커를 건다.
+* 그 이외에 업데이트쿼리라던지 등은 서킷 브레이크를 걸 필요가 없다.
 
 ## 장애 처리
 * 장애 처리는 circuit breaker로 하면되는데,
