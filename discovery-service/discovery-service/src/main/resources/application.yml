@@ -1,0 +1,12 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discovery-service
+
+#자신을 자신이 등록하는 격이된다. 따라서 false 로 설정한다. 즉 서버로서의 역할만 하도록한다.
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
