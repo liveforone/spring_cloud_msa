@@ -1,0 +1,40 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/order_service?serverTimezone=Asia/Seoul
+    username: root
+    password: 159624
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.springframework.web: DEBUG
+    com.example.orderservice: DEBUG
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
