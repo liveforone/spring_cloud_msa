@@ -17,7 +17,7 @@ public class KafkaConsumer {
 
     private final CatalogRepository catalogRepository;
 
-    @KafkaListener(topics = "minus-catalog-stock ")
+    @KafkaListener(topics = "minus-catalog-stock")
     @Transactional
     public void updateStock(String kafkaMessage) {
         log.info("Kafka Message -> " + kafkaMessage);
