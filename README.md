@@ -338,7 +338,7 @@ git push origin master
 [Dockerfile 양식]
 FROM openjdk:17-jdk-slim
 VOLUME /tmp
-ARG JAR_FILE=./build/libs/user-service-0.0.1.jar
+ARG JAR_FILE=./build/libs/user-service-1.0.jar
 COPY ${JAR_FILE} UserService.jar
 ENTRYPOINT ["java","-jar","UserService.jar"]
 
@@ -397,7 +397,7 @@ docker run -d -p 포트번호:포트번호 --network 네트워크명 --name disc
 #yml에 다른 url을 가져왔다면 그것을 보고 그대로 적어주면된다.
 #물론 같은 네트워크 안에 있을때 ip대신에 이미지명을 적는것이다.
 #다른 네트워크일경우 불가능하다
-docker run -d -p 포트번호:포트번호 --network 네트워크명 -e "eureka.client.serviceUrl.defaultZone=http://discoveryservice:8761/eureka/" --name 서비스명 계정명/서비스명:버전
+docker run -d -p 포트번호:포트번호 --network 네트워크명 -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" --name 서비스명 계정명/서비스명:버전
 ```
 ### db
 * 원하는 db의 이미지를 pull한 후에 커맨드를 사용한다.
